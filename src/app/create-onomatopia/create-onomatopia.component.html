@@ -1,0 +1,11 @@
+<form #myForm="ngForm" (ngSubmit)="myForm.valid && createOnomatopia()">
+    <label for="inputNew">New onomatopia</label>
+    <input id="inputNew" name="inputNew" [(ngModel)]="newOnomatopia" #inputNew="ngModel" required minlength="3">
+
+    <p *ngIf="inputNew.errors?.['required']">You must add an onomatopia</p>
+    <p *ngIf="inputNew.errors?.['minlength']">The length must be 3 or more characters</p>
+
+    <button type="submit">Send</button>
+
+
+</form>
